@@ -37,16 +37,11 @@ export default {
         };
     },
     async mounted() {
-        const response = await axios.get('http://beer-brewery.test/beers');
-        const secondRespone = await axios.get(
-            'http://beer-brewery.test/breweries'
-        );
-        const thirdResponse = await axios.get(
-            'http://beer-brewery.test/styles'
-        );
-        const fourthResponse = await axios.get(
-            'http://beer-brewery.test/glasses'
-        );
+        const BASE_URL = 'http://beer-brewery.test';
+        const response = await axios.get(BASE_URL + '/beers');
+        const secondRespone = await axios.get(BASE_URL + '/breweries');
+        const thirdResponse = await axios.get(BASE_URL + '/styles');
+        const fourthResponse = await axios.get(BASE_URL + '/glasses');
         this.beers = response.data;
         this.breweries = secondRespone.data;
         this.styles = thirdResponse.data;
