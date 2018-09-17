@@ -14,7 +14,7 @@ class BeerController extends Controller
      */
     public function index()
     {
-        return Beer::all();
+        return Beer::all()->take(10);
     }
 
     /**

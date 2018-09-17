@@ -1,26 +1,46 @@
 <template>
-    <ul v-if="beers && beers.length">
-        <li class="max-w-md rounded overflow-hidden shadow-lg mb-4" v-for="(beer, index) in beers" :key="index">
-            <img class="w-full" src="https://via.placeholder.com/350x65">
-            <div class="px-6 py-4">
-                <p class="text-grey-dark font-semibold">{{ breweries[beer.brewery_id].name }}</p>
-                <div class="flex justify-between mt-2 mb-2">
-                    <p class="font-bold text-xl">{{ beer.name }}</p> <p class="font-bold text-xl">${{ beer.price }}</p>
-                </div>
-                <div class="flex items-baseline">
-                    <svg class="h-4 w-4 mr-2 fill-current text-grey-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M0 0l20 8-8 4-2 8z"/></svg><p class="text-grey-dark">{{ breweries[beer.brewery_id].city }}, {{ breweries[beer.brewery_id].state }}</p>
-                </div>
-            </div>
-            <div class="px-6 py-4 flex justify-between bg-grey-lightest border-l-4 border-blue-dark">
-                <div>
-                    <p class="font-semibold"><em class="text-grey-dark font-thin">ABV</em> {{ beer.abv }}%  <em class="text-grey-dark font-thin">IBU</em> {{ beer.ibu }}</p>
-                </div>
-                <div>
-                    <p class="font-semibold"><em class="text-grey-dark font-thin">Style</em> {{ styles[beer.style_id].style }} <em class="text-grey-dark font-thin">Glass</em> {{ glasses[beer.style_id].type }}</p>
-                </div>
-            </div>
-        </li>
-    </ul>
+    <table class="w-full rounded shadow-lg mt-4 leading-normal text-left" v-if="beers && beers.length">
+        <tr class="bg-grey-lighter uppercase text-grey-darkest text-sm">
+            <th class="p-6"></th>
+            <th>Beer</th>
+            <th>Brewery</th>
+            <th>Price</th>
+            <th>ABV</th>
+            <th>IBU</th>
+            <th>Style</th>
+            <th></th>
+        </tr>
+        <tr v-for="(beer, index) in beers" :key="index" class="border-b-2">
+            <td class="p-4 border-l-4 border-green-dark">
+                <img class="w-8 h-8 rounded-full" src="https://via.placeholder.com/400x400">
+            </td>
+            <td>
+                <p class="font-semibold">{{ beer.name }}</p>
+                <p class="text-sm text-grey-dark font-thin">{{ styles[beer.style_id].style }}</p>
+            </td>
+            <td>
+                <p class="font-semibold">{{ breweries[beer.brewery_id].name }}</p>
+                <p class="text-sm text-grey-dark font-thin">{{ breweries[beer.brewery_id].city }}, {{ breweries[beer.brewery_id].state }}</p>
+            </td>
+            <td>
+                <p class="inline font-thin text-xs text-sm text-grey-dark">$</p>
+                <p class="inline font-semibold">{{ beer.price }}</p>
+            </td>
+            <td>
+                <p class="inline font-semibold text-sm">{{ beer.abv }}</p>
+                <p class="inline font-thin text-xs text-grey-dark">%</p>
+            </td>
+            <td class="font-semibold text-sm">
+                {{ beer.ibu }}
+            </td>
+            <td class="font-semibold text-sm">
+                {{ glasses[beer.style_id].type }}
+            </td>
+            <td>
+                <svg class="-mt-4 h-4 w-6 fill-current text-grey-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M4 12a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm6 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm6 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></svg>
+            </td>
+        </tr>
+    </table>
 </template>
 
 <script>
