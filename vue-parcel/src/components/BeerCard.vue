@@ -11,7 +11,7 @@
             <th></th>
         </tr>
         <tr v-for="(beer, index) in beers" :key="index" class="border-b-2">
-            <td class="p-4 border-l-4 border-green-dark">
+            <td :class="getBorder(beer.volume)">
                 <img class="w-8 h-8 rounded-full" src="https://via.placeholder.com/400x400">
             </td>
             <td>
@@ -66,6 +66,15 @@ export default {
         this.breweries = secondRespone.data;
         this.styles = thirdResponse.data;
         this.glasses = fourthResponse.data;
+    },
+    methods: {
+        getBorder(index){
+            return {
+                'p-4 border-l-4 border-green-dark': index <= 30,
+                'p-4 border-l-4 border-yellow-dark': index > 30 && index <= 60,
+                'p-4 border-l-4 border-red-dark': index > 60
+            }
+        }
     }
 };
 </script>

@@ -19,6 +19,7 @@ class CreateBeersTable extends Migration
             $table->integer('price');
             $table->integer('abv');
             $table->integer('ibu');
+            $table->integer('volume');
             $table->integer('brewery_id');
             $table->integer('style_id');
             $table->timestamps();

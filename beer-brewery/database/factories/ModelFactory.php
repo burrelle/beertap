@@ -17,6 +17,7 @@ $factory->define(App\Beer::class, function (Faker\Generator $faker) {
         'price' => $faker->numberBetween(5, 10),
         'abv' => $faker->numberBetween(1, 10),
         'ibu' => $faker->numberBetween(1, 100),
+        'volume' => $faker->numberBetween(1, 100),
         'brewery_id' => function () {
             return factory('App\Brewery')->create()->id;
         },

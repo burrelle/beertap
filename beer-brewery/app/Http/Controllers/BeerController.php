@@ -30,6 +30,7 @@ class BeerController extends Controller
             'price' => $request->price,
             'abv' => $request->abv,
             'ibu' => $request->ibu,
+            'volume' => $request->volume,
             'brewery_id' => $request->brewery_id,
         ]);
 
