@@ -17,6 +17,7 @@ $router->get('/', function () use ($router) {
 
 $router->get('/beers', 'BeerController@index');
 $router->post('/beers', 'BeerController@store');
+$router->get('/beers/{beer}', 'BeerController@show');
 $router->get('/breweries', 'BreweryController@index');
 $router->post('/breweries', 'BreweryController@store');
 $router->get('/styles', 'StyleController@index');
