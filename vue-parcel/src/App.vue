@@ -1,15 +1,15 @@
 
 <template>
   <div>
-    <beer-card></beer-card>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import BeerCard from "./components/BeerCard.vue";
+import BeerTable from "./components/BeerTable.vue";
 export default {
     name: 'app',
-    components: { BeerCard },
+    components: { BeerTable },
     data() {
         return {
             msg: 'Welcome to Your Vue.js App!'

@@ -10,7 +10,7 @@
             <th>Style</th>
             <th></th>
         </tr>
-        <tr v-for="(beer, index) in beers" :key="index" class="border-b-2">
+        <tr v-for="(beer, index) in beers" :id="beer.id" :key="index" class="border-b-2">
             <td :class="getBorder(beer.volume)">
                 <img class="w-8 h-8 rounded-full" src="https://via.placeholder.com/400x400">
             </td>
@@ -37,7 +37,7 @@
                 {{ glasses[beer.style_id].type }}
             </td>
             <td>
-                <svg class="-mt-4 h-4 w-6 fill-current text-grey-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M4 12a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm6 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm6 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></svg>
+                <router-link :to="'/beers/' + beer.id"><svg class="-mt-4 h-4 w-6 fill-current text-grey-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M4 12a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm6 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm6 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></svg></router-link>
             </td>
         </tr>
     </table>
@@ -47,7 +47,7 @@
 import axios from 'axios';
 
 export default {
-    name: 'beer-card',
+    name: 'beer-table',
     data() {
         return {
             beers: [],

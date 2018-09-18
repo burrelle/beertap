@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class BreweryController extends Controller
 {
+    /**
+     * All breweries
+     *
+     * @return void
+     */
     public function index()
     {
         return Brewery::all();
@@ -28,5 +33,16 @@ class BreweryController extends Controller
         ]);
 
         return response()->json($brewery, 201);
+    }
+
+    /**
+     * Show a specific brewery
+     *
+     * @param Integer $id
+     * @return void
+     */
+    public function show($id)
+    {
+        return Brewery::find($id);
     }
 }

@@ -20,5 +20,6 @@ $router->post('/beers', 'BeerController@store');
 $router->get('/beers/{beer}', 'BeerController@show');
 $router->get('/breweries', 'BreweryController@index');
 $router->post('/breweries', 'BreweryController@store');
+$router->get('/breweries/{brewery}', 'BreweryController@show');
 $router->get('/styles', 'StyleController@index');
 $router->get('/glasses', 'GlassController@index');

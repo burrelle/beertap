@@ -37,6 +37,12 @@ class BeerController extends Controller
         return response()->json($beer, 201);
     }
 
+    /**
+     * Show a single beer
+     *
+     * @param Integer $id
+     * @return void
+     */
     public function show($id)
     {
         return Beer::find($id);
